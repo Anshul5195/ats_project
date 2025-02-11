@@ -23,7 +23,6 @@ class CandidateViewSet(viewsets.ModelViewSet):
             search_conditions = Q()
             for word in query_words:
                 search_conditions |= Q(name__icontains=word)
-
             candidates = queryset.filter(search_conditions).annotate(
                 relevance=Count('name', filter=Q(name__icontains=query_words[0]))
             ).order_by('-relevance')
