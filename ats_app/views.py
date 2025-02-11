@@ -10,7 +10,6 @@ class CandidateViewSet(viewsets.ModelViewSet):
     Supports: List, Create, Retrieve, Update, Delete, and Search candidates.
     """
     lookup_field = "unique_id"
-    queryset = Candidate.objects.all()
     serializer_class = CandidateSerializer
 
     def get_queryset(self):
