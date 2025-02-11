@@ -57,3 +57,26 @@ python manage.py migrate
 ```sh
 python manage.py runserver
 ```
+
+### **7️⃣ API Endpoints**
+```sh
+GET /api/ats-app/candidates/
+POST /api/ats-app/candidates/
+GET /api/ats-app/candidates/?name=<some_name_to_search>
+GET /api/ats-app/candidates/<candidate_unique_id>/
+PUT /api/ats-app/candidates/<candidate_unique_id>/
+PATCH /api/ats-app/candidates/<candidate_unique_id>/
+DELETE /api/ats-app/candidates/<candidate_unique_id>/
+```
+
+### **8️⃣ Payload**
+```sh
+# {"M": "Male", "F": "Female", "O": "Other"}
+{
+    "name": "some_name",
+    "age": 30,
+    "gender": "M",
+    "email": "some_email",
+    "phone_number": "some_phone_number"
+}
+```
