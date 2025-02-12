@@ -23,7 +23,7 @@ class CandidateViewSet(viewsets.ModelViewSet):
             for word in query_words:
                 search_conditions |= Q(name__icontains=word)
 
-            # Annotate candidates with word match count
+            # Annotate candidates with relevance(word match count)
             candidates = Candidate.objects.filter(search_conditions).annotate(
                 relevance=sum(
                     (Length('name') - Length(Replace(expression='name', text=Value(word), replacement=Value('')))) / Length(Value(word))
